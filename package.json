@@ -6,7 +6,13 @@
   "types": "dist/index.d.ts",
   "scripts": {
     "test": "mocha --require ts-node/register 'test/**/*.ts'",
-    "build": "tsc"
+    "build": "tsc",
+    "prepare": "npm run build",
+    "prepublishOnly": "npm test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Aperocky/weighted-markov-generator.git"
   },
   "keywords": [
     "markov",
