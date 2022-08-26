@@ -20,13 +20,19 @@ export class WeightedMarkovGenerator {
         this.seedDictionary.populateDictionary(text);
     }
 
-    generateText(textLength: number, start: string = ""): string {
+    generateText(textLength: number, start: string = "", endsOn: string = ""): string {
+        if (endsOn.length > this.seedLength) {
+            throw new Error("endsOn length cannot exceed seed length");
+        }
+        if (endsOn != "" && !this.seedDictionary.hasSeed(endsOn)) {
+            throw new Error("endsOn are not in the seed files, cannot end on phrase provided");
+        }
         if (start == "") {
             start = this.seedDictionary.getRandomSeed();
         }
         let currLength = start.length;
         let currText = start;
-        while (currText.length < textLength) {
+        while (true) {
             let csl = this.seedLength;
             if (csl > currText.length) {
                 csl = currText.length;
@@ -46,7 +52,19 @@ export class WeightedMarkovGenerator {
                 // Unable to find seed, returning a truncated version.
                 return currText;
             }
+
+            // Process endsOn
+            if (currText.length >= textLength) {
+                if (endsOn.length > 0) {
+                    if (currText.length >= 2 * textLength) {
+                        return currText;
+                    }
+                    if (endsOn != currText.slice(-endsOn.length)) {
+                        continue;
+                    }
+                }
+                return currText;
+            }
         }
-        return currText;
     }
 }

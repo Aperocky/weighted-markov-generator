@@ -1,6 +1,6 @@
 // Weighted markov seed dictionary
 
-export class SeedBlob {
+class SeedBlob {
     
     count: number;
     countMap: Map<string, number>;
