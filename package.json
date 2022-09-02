@@ -1,13 +1,13 @@
 {
   "name": "weighted-markov-generator",
-  "version": "0.2.1",
+  "version": "1.0.0",
   "description": "Quick and simple to use weighted markov text generator, seed with any text",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
     "test": "mocha --require ts-node/register 'test/**/*.ts'",
     "build": "tsc",
-    "clean": "rm -r dist",
+    "clean": "if [ -d 'dist' ]; then rm -rf dist; fi",
     "prepare": "npm run clean && npm run build",
     "prepublishOnly": "npm test"
   },

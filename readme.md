@@ -1,8 +1,12 @@
 ## weighted-markov-generator
 
+![NPM Version](https://badge.fury.io/js/weighted-markov-generator.svg) &nbsp; ![Unit Test](https://github.com/Aperocky/weighted-markov-generator/workflows/UnitTests/badge.svg)
+
 Implementation of weighted markov generator in typescript.
 
     npm -i weighted-markov-generator
+
+See example implementation and demo in webpage: http://aperocky.com/markov/
 
 Use in typescript/ES6:
 
