@@ -6,7 +6,7 @@ Implementation of weighted markov generator in typescript.
 
     npm -i weighted-markov-generator
 
-See example implementation and demo in webpage: http://aperocky.com/markov/
+See example implementation and demo in webpage: https://aperocky.com/markov/
 
 Use in typescript/ES6:
 
